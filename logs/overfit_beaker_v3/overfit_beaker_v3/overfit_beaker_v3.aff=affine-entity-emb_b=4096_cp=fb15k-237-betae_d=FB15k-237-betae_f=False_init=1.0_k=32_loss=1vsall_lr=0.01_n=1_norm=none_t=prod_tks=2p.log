@@ -1,0 +1,25 @@
+2022-07-28 10:47:10,728 INFO     ---------------------------------------------------------------------------------------------
+2022-07-28 10:47:10,728 INFO     Geo: cqd
+2022-07-28 10:47:10,729 INFO     Data Path: data/FB15k-237-betae
+2022-07-28 10:47:10,729 INFO     #entity: 14505
+2022-07-28 10:47:10,729 INFO     #relation: 474
+2022-07-28 10:47:10,729 INFO     #max steps: 150000
+2022-07-28 10:47:10,729 INFO     Evaluate unoins using: DNF
+2022-07-28 10:47:10,729 INFO     loading data
+2022-07-28 10:47:51,823 INFO     Training info:
+2022-07-28 10:47:51,826 INFO     2p: 149689
+2022-07-28 10:47:53,931 INFO     Validation info:
+2022-07-28 10:47:53,931 INFO     2p: 5000
+2022-07-28 10:47:53,933 INFO     Test info:
+2022-07-28 10:47:53,933 INFO     2p: 5000
+posix.uname_result(sysname='Linux', nodename='gonzo-605-8.local', release='3.10.0-1160.49.1.el7.x86_64', version='#1 SMP Tue Nov 30 15:51:32 UTC 2021', machine='x86_64')
+Traceback (most recent call last):
+  File "main.py", line 632, in <module>
+    main(parse_args())
+  File "main.py", line 425, in main
+    model = CQD(nentity,
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 191, in __init__
+    self.batch_entity_range = self.batch_entity_range.cuda()
+RuntimeError: CUDA error: all CUDA-capable devices are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.

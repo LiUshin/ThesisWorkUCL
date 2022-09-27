@@ -1,0 +1,36 @@
+2022-07-28 10:48:27,927 INFO     ---------------------------------------------------------------------------------------------
+2022-07-28 10:48:27,927 INFO     Geo: cqd
+2022-07-28 10:48:27,927 INFO     Data Path: data/FB15k-237-betae
+2022-07-28 10:48:27,927 INFO     #entity: 14505
+2022-07-28 10:48:27,927 INFO     #relation: 474
+2022-07-28 10:48:27,927 INFO     #max steps: 150000
+2022-07-28 10:48:27,927 INFO     Evaluate unoins using: DNF
+2022-07-28 10:48:27,927 INFO     loading data
+2022-07-28 10:49:02,013 INFO     Training info:
+2022-07-28 10:49:02,017 INFO     Validation info:
+2022-07-28 10:49:02,020 INFO     ip: 5000
+2022-07-28 10:49:02,024 INFO     Test info:
+2022-07-28 10:49:02,024 INFO     ip: 5000
+/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/cuda/__init__.py:145: UserWarning: 
+NVIDIA A100-PCIE-40GB with CUDA capability sm_80 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70.
+If you want to use the NVIDIA A100-PCIE-40GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+2022-07-28 10:49:02,436 INFO     Model Parameter Configuration:
+2022-07-28 10:49:02,436 INFO     Parameter embeddings.0.weight: torch.Size([14505, 2000]), require_grad = True
+2022-07-28 10:49:02,436 INFO     Parameter embeddings.1.weight: torch.Size([474, 2000]), require_grad = True
+2022-07-28 10:49:02,436 INFO     Parameter score_transform_ent_fun.weight: torch.Size([2, 2000]), require_grad = True
+2022-07-28 10:49:02,436 INFO     Parameter score_transform_ent_fun.bias: torch.Size([2]), require_grad = True
+2022-07-28 10:49:02,436 INFO     Parameter Number: 29962002
+posix.uname_result(sysname='Linux', nodename='bert.local', release='3.10.0-1160.49.1.el7.x86_64', version='#1 SMP Tue Nov 30 15:51:32 UTC 2021', machine='x86_64')
+Traceback (most recent call last):
+  File "main.py", line 632, in <module>
+    main(parse_args())
+  File "main.py", line 490, in main
+    optimizer = OptimizerClass(
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/optim/adagrad.py", line 68, in __init__
+    state['sum'] = torch.full_like(p, init_value, memory_format=torch.preserve_format)
+RuntimeError: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.

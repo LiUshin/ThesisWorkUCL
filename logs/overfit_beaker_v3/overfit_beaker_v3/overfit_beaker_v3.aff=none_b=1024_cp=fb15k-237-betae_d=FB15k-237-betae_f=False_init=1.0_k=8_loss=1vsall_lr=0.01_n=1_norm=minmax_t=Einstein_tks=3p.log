@@ -1,0 +1,45 @@
+2022-08-08 21:56:17,323 INFO     ---------------------------------------------------------------------------------------------
+2022-08-08 21:56:17,323 INFO     Geo: cqd
+2022-08-08 21:56:17,323 INFO     Data Path: data/FB15k-237-betae
+2022-08-08 21:56:17,324 INFO     #entity: 14505
+2022-08-08 21:56:17,324 INFO     #relation: 474
+2022-08-08 21:56:17,324 INFO     #max steps: 150000
+2022-08-08 21:56:17,324 INFO     Evaluate unoins using: DNF
+2022-08-08 21:56:17,324 INFO     loading data
+2022-08-08 21:56:53,110 INFO     Training info:
+2022-08-08 21:56:53,114 INFO     3p: 149689
+2022-08-08 21:56:57,361 INFO     Validation info:
+2022-08-08 21:56:57,361 INFO     3p: 5000
+2022-08-08 21:56:57,363 INFO     Test info:
+2022-08-08 21:56:57,363 INFO     3p: 5000
+2022-08-08 21:57:00,226 INFO     Model Parameter Configuration:
+2022-08-08 21:57:00,227 INFO     Parameter embeddings.0.weight: torch.Size([14505, 2000]), require_grad = True
+2022-08-08 21:57:00,227 INFO     Parameter embeddings.1.weight: torch.Size([474, 2000]), require_grad = True
+2022-08-08 21:57:00,227 INFO     Parameter Number: 29958000
+2022-08-08 21:57:00,259 INFO     Loading checkpoint models/fb15k-237-betae...
+2022-08-08 21:57:00,470 INFO     tasks = 3p
+2022-08-08 21:57:00,470 INFO     init_step = 99999
+2022-08-08 21:57:00,470 INFO     Start Training...
+2022-08-08 21:57:00,470 INFO     learning_rate = 0
+2022-08-08 21:57:00,470 INFO     batch_size = 1024
+2022-08-08 21:57:00,470 INFO     hidden_dim = 1000
+2022-08-08 21:57:00,470 INFO     gamma = 12.000000
+posix.uname_result(sysname='Linux', nodename='gonzo-605-20.local', release='3.10.0-1160.49.1.el7.x86_64', version='#1 SMP Tue Nov 30 15:51:32 UTC 2021', machine='x86_64')
+Traceback (most recent call last):
+  File "main.py", line 632, in <module>
+    main(parse_args())
+  File "main.py", line 537, in main
+    log = KGReasoning.train_step(model, optimizer, train_path_iterator, args, step)
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/models.py", line 674, in train_step
+    model.forward(positive_sample=positive_sample,
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 445, in forward
+    scores = d2.query_3p(entity_embeddings=self.embeddings[0],
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/discrete.py", line 147, in query_3p
+    atom3_scores_2d, _ = score_candidates(s_emb=x2_k_emb_2d, p_emb=p3_emb,
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/discrete.py", line 33, in score_candidates
+    atom_scores_2d = scoring_function(s_emb, p_emb, candidates_emb)
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 586, in scoring_function
+    res, _ = self.score_o(lhs_, rel_, rhs_)
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 252, in score_o
+    return score_1 + score_2, factors
+RuntimeError: CUDA out of memory. Tried to allocate 3.54 GiB (GPU 0; 11.91 GiB total capacity; 10.26 GiB already allocated; 954.94 MiB free; 10.30 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

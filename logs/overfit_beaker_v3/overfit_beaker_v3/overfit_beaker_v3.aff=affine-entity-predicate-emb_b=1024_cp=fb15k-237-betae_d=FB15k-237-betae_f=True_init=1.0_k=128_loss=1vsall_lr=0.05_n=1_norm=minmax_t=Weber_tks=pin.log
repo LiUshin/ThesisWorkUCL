@@ -1,0 +1,52 @@
+2022-08-15 16:39:05,610 INFO     ---------------------------------------------------------------------------------------------
+2022-08-15 16:39:05,610 INFO     Geo: cqd
+2022-08-15 16:39:05,610 INFO     Data Path: data/FB15k-237-betae
+2022-08-15 16:39:05,610 INFO     #entity: 14505
+2022-08-15 16:39:05,610 INFO     #relation: 474
+2022-08-15 16:39:05,610 INFO     #max steps: 150000
+2022-08-15 16:39:05,610 INFO     Evaluate unoins using: DNF
+2022-08-15 16:39:05,611 INFO     loading data
+2022-08-15 16:39:52,640 INFO     Training info:
+2022-08-15 16:39:52,644 INFO     pin: 14968
+2022-08-15 16:39:52,803 INFO     Validation info:
+2022-08-15 16:39:52,803 INFO     pin: 5000
+2022-08-15 16:39:52,806 INFO     Test info:
+2022-08-15 16:39:52,806 INFO     pin: 5000
+2022-08-15 16:39:56,589 INFO     Model Parameter Configuration:
+2022-08-15 16:39:56,589 INFO     Parameter embeddings.0.weight: torch.Size([14505, 2000]), require_grad = False
+2022-08-15 16:39:56,590 INFO     Parameter embeddings.1.weight: torch.Size([474, 2000]), require_grad = False
+2022-08-15 16:39:56,590 INFO     Parameter score_transform_fun.weight: torch.Size([2, 2000]), require_grad = True
+2022-08-15 16:39:56,590 INFO     Parameter score_transform_fun.bias: torch.Size([2]), require_grad = True
+2022-08-15 16:39:56,590 INFO     Parameter score_transform_ent_fun.weight: torch.Size([2, 2000]), require_grad = True
+2022-08-15 16:39:56,590 INFO     Parameter score_transform_ent_fun.bias: torch.Size([2]), require_grad = True
+2022-08-15 16:39:56,591 INFO     Parameter t_norm.p: torch.Size([]), require_grad = True
+2022-08-15 16:39:56,591 INFO     Parameter Number: 8005
+2022-08-15 16:39:56,675 INFO     Loading checkpoint models/fb15k-237-betae...
+2022-08-15 16:39:56,989 INFO     tasks = pin
+2022-08-15 16:39:56,989 INFO     init_step = 99999
+2022-08-15 16:39:56,989 INFO     Start Training...
+2022-08-15 16:39:56,989 INFO     learning_rate = 0
+2022-08-15 16:39:56,989 INFO     batch_size = 1024
+2022-08-15 16:39:56,989 INFO     hidden_dim = 1000
+2022-08-15 16:39:56,989 INFO     gamma = 12.000000
+posix.uname_result(sysname='Linux', nodename='gonzo-605-19.local', release='3.10.0-1160.49.1.el7.x86_64', version='#1 SMP Tue Nov 30 15:51:32 UTC 2021', machine='x86_64')
+Traceback (most recent call last):
+  File "main.py", line 632, in <module>
+    main(parse_args())
+  File "main.py", line 543, in main
+    log = KGReasoning.train_step(model, optimizer, train_other_iterator, args, step)
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/models.py", line 674, in train_step
+    model.forward(positive_sample=positive_sample,
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 497, in forward
+    scores = d2.query_pin(entity_embeddings=self.embeddings[0],
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/discrete.py", line 435, in query_pin
+    scores_1 = query_2p(entity_embeddings=entity_embeddings, predicate_embeddings=predicate_embeddings,
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/discrete.py", line 93, in query_2p
+    atom2_scores_2d, _ = score_candidates(s_emb=x1_k_emb_2d, p_emb=p2_emb,
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/discrete.py", line 33, in score_candidates
+    atom_scores_2d = scoring_function(s_emb, p_emb, candidates_emb)
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 586, in scoring_function
+    res, _ = self.score_o(lhs_, rel_, rhs_)
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 250, in score_o
+    score_2 = (lhs[1] * rel[0] + lhs[0] * rel[1]) @ rhs[1].transpose(-1, -2)
+RuntimeError: CUDA out of memory. Tried to allocate 7.08 GiB (GPU 0; 11.91 GiB total capacity; 10.10 GiB already allocated; 1.12 GiB free; 10.11 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

@@ -1,0 +1,37 @@
+2022-07-28 10:42:58,175 INFO     ---------------------------------------------------------------------------------------------
+2022-07-28 10:42:58,175 INFO     Geo: cqd
+2022-07-28 10:42:58,175 INFO     Data Path: data/FB15k-237-betae
+2022-07-28 10:42:58,175 INFO     #entity: 14505
+2022-07-28 10:42:58,175 INFO     #relation: 474
+2022-07-28 10:42:58,175 INFO     #max steps: 150000
+2022-07-28 10:42:58,175 INFO     Evaluate unoins using: DNF
+2022-07-28 10:42:58,176 INFO     loading data
+2022-07-28 10:43:32,675 INFO     Training info:
+2022-07-28 10:43:32,679 INFO     2p: 149689
+2022-07-28 10:43:34,738 INFO     Validation info:
+2022-07-28 10:43:34,738 INFO     2p: 5000
+2022-07-28 10:43:34,740 INFO     Test info:
+2022-07-28 10:43:34,740 INFO     2p: 5000
+2022-07-28 10:44:10,982 INFO     Model Parameter Configuration:
+2022-07-28 10:44:10,983 INFO     Parameter embeddings.0.weight: torch.Size([14505, 2000]), require_grad = True
+2022-07-28 10:44:10,983 INFO     Parameter embeddings.1.weight: torch.Size([474, 2000]), require_grad = True
+2022-07-28 10:44:10,983 INFO     Parameter Number: 29958000
+posix.uname_result(sysname='Linux', nodename='gonzo-605-2.local', release='3.10.0-1160.66.1.el7.x86_64', version='#1 SMP Wed May 18 16:02:34 UTC 2022', machine='x86_64')
+Traceback (most recent call last):
+  File "main.py", line 632, in <module>
+    main(parse_args())
+  File "main.py", line 486, in main
+    model = model.cuda()
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 688, in cuda
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 578, in _apply
+    module._apply(fn)
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 578, in _apply
+    module._apply(fn)
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 601, in _apply
+    param_applied = fn(param)
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 688, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+RuntimeError: CUDA error: all CUDA-capable devices are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.

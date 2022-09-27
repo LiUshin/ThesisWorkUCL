@@ -1,0 +1,3 @@
+usage: train.py [<args>] [-h | --help]
+main.py: error: argument --cqd-t-norm: invalid choice: 'strict' (choose from 'min', 'prod', 'Lukasiewicz', 'drastic', 'Einstein', 'bounded', 'Hamacher', 'Frank', 'Yager', 'Schweizer', 'Dombi', 'Weber', 'Additive', 'Additive_linear', 'Additive_learnable_inverse', 'Additive_polynomial', 'Aczel', 'LAF', 'Siam-LAF')
+posix.uname_result(sysname='Linux', nodename='gonzo-605-18.local', release='3.10.0-1160.49.1.el7.x86_64', version='#1 SMP Tue Nov 30 15:51:32 UTC 2021', machine='x86_64')

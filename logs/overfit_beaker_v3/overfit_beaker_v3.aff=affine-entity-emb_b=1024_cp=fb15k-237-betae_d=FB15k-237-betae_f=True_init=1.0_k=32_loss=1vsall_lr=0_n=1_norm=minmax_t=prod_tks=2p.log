@@ -1,0 +1,43 @@
+2022-07-29 19:58:05,807 INFO     ---------------------------------------------------------------------------------------------
+2022-07-29 19:58:05,807 INFO     Geo: cqd
+2022-07-29 19:58:05,807 INFO     Data Path: data/FB15k-237-betae
+2022-07-29 19:58:05,807 INFO     #entity: 14505
+2022-07-29 19:58:05,807 INFO     #relation: 474
+2022-07-29 19:58:05,807 INFO     #max steps: 150000
+2022-07-29 19:58:05,807 INFO     Evaluate unoins using: DNF
+2022-07-29 19:58:05,807 INFO     loading data
+2022-07-29 19:58:36,513 INFO     Training info:
+2022-07-29 19:58:36,517 INFO     2p: 149689
+2022-07-29 19:58:38,623 INFO     Validation info:
+2022-07-29 19:58:38,623 INFO     2p: 5000
+2022-07-29 19:58:38,624 INFO     Test info:
+2022-07-29 19:58:38,624 INFO     2p: 5000
+2022-07-29 19:58:41,234 INFO     Model Parameter Configuration:
+2022-07-29 19:58:41,234 INFO     Parameter embeddings.0.weight: torch.Size([14505, 2000]), require_grad = False
+2022-07-29 19:58:41,234 INFO     Parameter embeddings.1.weight: torch.Size([474, 2000]), require_grad = False
+2022-07-29 19:58:41,234 INFO     Parameter score_transform_ent_fun.weight: torch.Size([2, 2000]), require_grad = True
+2022-07-29 19:58:41,235 INFO     Parameter score_transform_ent_fun.bias: torch.Size([2]), require_grad = True
+2022-07-29 19:58:41,235 INFO     Parameter Number: 4002
+2022-07-29 19:58:41,276 INFO     Loading checkpoint models/fb15k-237-betae...
+2022-07-29 19:58:41,510 INFO     tasks = 2p
+2022-07-29 19:58:41,510 INFO     init_step = 99999
+2022-07-29 19:58:41,510 INFO     Start Training...
+2022-07-29 19:58:41,510 INFO     learning_rate = 0
+2022-07-29 19:58:41,510 INFO     batch_size = 1024
+2022-07-29 19:58:41,510 INFO     hidden_dim = 1000
+2022-07-29 19:58:41,510 INFO     gamma = 12.000000
+posix.uname_result(sysname='Linux', nodename='gonzo-605-2.local', release='3.10.0-1160.66.1.el7.x86_64', version='#1 SMP Wed May 18 16:02:34 UTC 2022', machine='x86_64')
+Traceback (most recent call last):
+  File "main.py", line 632, in <module>
+    main(parse_args())
+  File "main.py", line 537, in main
+    log = KGReasoning.train_step(model, optimizer, train_path_iterator, args, step)
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/models.py", line 674, in train_step
+    model.forward(positive_sample=positive_sample,
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/base.py", line 439, in forward
+    scores = d2.query_2p(entity_embeddings=self.embeddings[0],
+  File "/home/shinaliu/KG/models/kg-reasoning-alpha/cqd/discrete.py", line 103, in query_2p
+    res = t_norm(atom1_scores_3d, atom2_scores_3d)
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torchnorms/tnorms/classic.py", line 28, in __call__
+    return a * b
+RuntimeError: CUDA out of memory. Tried to allocate 1.77 GiB (GPU 0; 11.91 GiB total capacity; 9.66 GiB already allocated; 1.55 GiB free; 9.67 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

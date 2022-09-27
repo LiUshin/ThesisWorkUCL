@@ -1,0 +1,41 @@
+2022-07-28 10:50:22,412 INFO     ---------------------------------------------------------------------------------------------
+2022-07-28 10:50:22,413 INFO     Geo: cqd
+2022-07-28 10:50:22,413 INFO     Data Path: data/FB15k-237-betae
+2022-07-28 10:50:22,413 INFO     #entity: 14505
+2022-07-28 10:50:22,413 INFO     #relation: 474
+2022-07-28 10:50:22,413 INFO     #max steps: 150000
+2022-07-28 10:50:22,413 INFO     Evaluate unoins using: DNF
+2022-07-28 10:50:22,413 INFO     loading data
+2022-07-28 10:51:05,819 INFO     Training info:
+2022-07-28 10:51:05,823 INFO     2p: 149689
+2022-07-28 10:51:08,432 INFO     Validation info:
+2022-07-28 10:51:08,433 INFO     2p: 5000
+2022-07-28 10:51:08,436 INFO     Test info:
+2022-07-28 10:51:08,437 INFO     2p: 5000
+2022-07-28 10:51:13,544 INFO     Model Parameter Configuration:
+2022-07-28 10:51:13,544 INFO     Parameter embeddings.0.weight: torch.Size([14505, 2000]), require_grad = False
+2022-07-28 10:51:13,545 INFO     Parameter embeddings.1.weight: torch.Size([474, 2000]), require_grad = False
+2022-07-28 10:51:13,545 INFO     Parameter score_transform_fun.weight: torch.Size([2, 2000]), require_grad = True
+2022-07-28 10:51:13,545 INFO     Parameter score_transform_fun.bias: torch.Size([2]), require_grad = True
+2022-07-28 10:51:13,545 INFO     Parameter score_transform_ent_fun.weight: torch.Size([2, 2000]), require_grad = True
+2022-07-28 10:51:13,545 INFO     Parameter score_transform_ent_fun.bias: torch.Size([2]), require_grad = True
+2022-07-28 10:51:13,545 INFO     Parameter Number: 8004
+posix.uname_result(sysname='Linux', nodename='sweetums-609-8.local', release='3.10.0-1160.49.1.el7.x86_64', version='#1 SMP Tue Nov 30 15:51:32 UTC 2021', machine='x86_64')
+Traceback (most recent call last):
+  File "main.py", line 632, in <module>
+    main(parse_args())
+  File "main.py", line 486, in main
+    model = model.cuda()
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 688, in cuda
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 578, in _apply
+    module._apply(fn)
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 578, in _apply
+    module._apply(fn)
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 601, in _apply
+    param_applied = fn(param)
+  File "/home/shinaliu/miniconda3/envs/kg/lib/python3.8/site-packages/torch/nn/modules/module.py", line 688, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+RuntimeError: CUDA error: all CUDA-capable devices are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
